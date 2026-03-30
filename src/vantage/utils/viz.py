@@ -38,7 +38,7 @@ _STEP_STYLE: dict[str, dict] = {
 _DEFAULT_STYLE: dict = {"outline": (80, 90, 100), "label_c": (160, 170, 180), "badge": "STEP"}
 
 
-def _load_fonts() -> tuple[ImageFont.ImageFont, ImageFont.ImageFont]:
+def _load_fonts() -> tuple:
     """Return ``(content_font, label_font)``. Falls back to Pillow default."""
     for name in ("DejaVuSans.ttf", "arial.ttf", "Arial.ttf", "FreeSans.ttf"):
         try:
