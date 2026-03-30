@@ -34,6 +34,7 @@ lint-fix:
 	$(PYTHON) -m ruff check --fix .
 
 typecheck:
+	$(PYTHON) -m pip install types-PyYAML
 	$(PYTHON) -m mypy src/vantage
 
 format:
