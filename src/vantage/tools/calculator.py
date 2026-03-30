@@ -5,6 +5,8 @@ import operator
 from typing import Any, Dict
 
 from ..core.bases import ToolBase
+from typing import Callable
+
 
 # Guard against exponentiation towers like 9**9**9 that would compute for a very long time.
 _MAX_POW_BASE = 1_000
@@ -42,7 +44,7 @@ class Calculator(ToolBase):
         return str(value)
 
 
-_BIN_OPS = {
+_BIN_OPS: dict[type, Callable[[float, float], float]] = {
     ast.Add: operator.add,
     ast.Sub: operator.sub,
     ast.Mult: operator.mul,
@@ -52,7 +54,7 @@ _BIN_OPS = {
     ast.Pow: operator.pow,
 }
 
-_UNARY_OPS = {
+_UNARY_OPS: dict[type, Callable[[float], float]] = {
     ast.UAdd: operator.pos,
     ast.USub: operator.neg,
 }

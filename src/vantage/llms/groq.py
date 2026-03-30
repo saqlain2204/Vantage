@@ -8,7 +8,7 @@ import httpx
 
 from ..core.bases import AsyncLLMBase, LLMBase, ToolBase
 from ..core.models import Message
-from .openai import _auth_headers, _parse_response, _to_openai_message, _to_openai_tool
+from .openai import _auth_headers, _parse_response, _to_openai_message
 
 
 class GroqModel(LLMBase):
@@ -183,11 +183,24 @@ def _groq_payload(
     if top_p is not None:
         payload["top_p"] = top_p
 
-    tool_payload = [_to_openai_tool(t) for t in tools]
+    tool_payload = [_to_groq_tool(t) for t in tools]
     if tool_payload:
         payload["tools"] = tool_payload
 
     return msgs, payload
+
+
+def _to_groq_tool(t: ToolBase) -> Dict[str, Any]:
+    """Like _to_openai_tool but strips `additionalProperties` which Groq rejects."""
+    schema = {k: v for k, v in t.input_schema().items() if k != "additionalProperties"}
+    return {
+        "type": "function",
+        "function": {
+            "name": t.name,
+            "description": t.description,
+            "parameters": schema,
+        },
+    }
 
 
 

@@ -200,7 +200,8 @@ def _parse_response(data: Dict[str, Any]) -> Message:
         fn = tc.get("function") or {}
         args_raw = fn.get("arguments") or "{}"
         try:
-            args = json.loads(args_raw) if isinstance(args_raw, str) else dict(args_raw)
+            parsed = json.loads(args_raw) if isinstance(args_raw, str) else args_raw
+            args = parsed if isinstance(parsed, dict) else {}
         except Exception:
             args = {}
         tool_calls.append(

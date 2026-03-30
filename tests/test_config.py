@@ -23,8 +23,9 @@ def _write(tmp_path, content: str):
 
 
 @respx.mock
-def test_flat_format_groq(tmp_path):
+def test_flat_format_groq(tmp_path, monkeypatch):
     """New flat 'model: groq/...' format should load and call Groq endpoint."""
+    monkeypatch.setenv("GROQ_API_KEY", "test")
     cfg = _write(tmp_path, """
 agents:
   bot:
