@@ -22,13 +22,22 @@ cp .env.example .env   # fill in your API keys
 1. **Fork** the repository and clone your fork.
 2. **Create a branch** — one branch per feature or bug fix.
 3. **Make your changes** and add tests under `tests/`.
-4. **Verify** the full check suite passes:
+4. **Fix any lint errors** automatically:
+   ```bash
+   make lint-fix
+   ```
+5. **Verify** the full check suite passes:
+   ```bash
+   make lint
+   make test
+   ```
+   Or manually:
    ```bash
    python -m ruff check .
    python -m mypy src/vantage
    python -m pytest -q
    ```
-5. **Submit a Pull Request** against `main`.
+6. **Submit a Pull Request** against `main`.
 
 ## Code conventions
 

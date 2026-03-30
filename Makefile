@@ -1,4 +1,4 @@
-.PHONY: help setup install test lint typecheck format coverage
+.PHONY: help setup install test lint lint-fix typecheck format coverage
 
 # Override with: make setup PYTHON=python3.11
 PYTHON ?= python
@@ -10,6 +10,7 @@ help:
 	@echo "  install    Install the package in editable mode"
 	@echo "  test       Run the test suite with pytest"
 	@echo "  lint       Run ruff and mypy"
+	@echo "  lint-fix   Auto-fix ruff lint errors"
 	@echo "  typecheck  Run mypy only"
 	@echo "  format     Auto-format source with ruff"
 	@echo "  coverage   Run tests and produce an HTML coverage report"
@@ -28,6 +29,9 @@ test:
 lint:
 	$(PYTHON) -m ruff check .
 	$(PYTHON) -m mypy src/vantage
+
+lint-fix:
+	$(PYTHON) -m ruff check --fix .
 
 typecheck:
 	$(PYTHON) -m mypy src/vantage
