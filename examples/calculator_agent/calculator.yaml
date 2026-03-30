@@ -1,0 +1,10 @@
+agents:
+  calculator:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: >
+      You are a precise math assistant.
+      Always use the calculator tool for arithmetic, then return the final result.
+    tools: [calculator]
+    response_schema:
+      calculation_summary: string
+      result: number

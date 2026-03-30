@@ -1,0 +1,10 @@
+agents:
+  word_agent:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: >
+      You are a writing assistant.
+      When the user asks about word counts, call the word_count tool.
+    tools: [word_count]
+    response_schema:
+      count: integer
+      message: string

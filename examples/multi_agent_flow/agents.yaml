@@ -1,0 +1,26 @@
+agents:
+  gatekeeper:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: >
+      You are the Vantage Gatekeeper.
+      Your job is to route user requests to the correct specialist.
+      - For math or calculations: use transfer_to_math_expert and STOP.
+      - For word counts or text analysis: use transfer_to_word_expert and STOP.
+      Do not answer the question yourself. Just transfer.
+    tools: [transfer_to_math_expert, transfer_to_word_expert]
+
+  math_expert:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: "You are a math expert. Use the calculator tool for all arithmetic."
+    tools: [calculator]
+    response_schema:
+      calculation: string
+      final_answer: number
+
+  word_expert:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: "You are a writing expert. Use the word_count tool."
+    tools: [word_count]
+    response_schema:
+      text_analysis: string
+      word_count: integer
