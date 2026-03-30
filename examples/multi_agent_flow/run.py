@@ -1,4 +1,3 @@
-import os
 from rich import print
 from rich.panel import Panel
 from dotenv import load_dotenv
@@ -31,7 +30,7 @@ def main():
     
     # Save trace
     save_trace_png(resp.trace, "examples/multi_agent_flow/trace.png")
-    print(f"\n[bold][green]Visual trace saved to examples/multi_agent_flow/trace.png[/green][/bold]")
+    print("\n[bold][green]Visual trace saved to examples/multi_agent_flow/trace.png[/green][/bold]")
 
 if __name__ == "__main__":
     main()

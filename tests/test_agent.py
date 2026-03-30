@@ -1,12 +1,11 @@
 """Unit tests for the sync Agent class using stub LLM implementations."""
 from __future__ import annotations
 
-from typing import Any, Dict, Iterator, List, Optional
+from typing import Any, Dict, List, Optional
 
-import pytest
 
 from vantage.core.agent import Agent
-from vantage.core.bases import LLMBase, MemoryBase, ToolBase
+from vantage.core.bases import LLMBase, ToolBase
 from vantage.core.models import Message, Role, ToolCall
 from vantage.memory.local import LocalMemory
 

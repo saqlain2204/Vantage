@@ -7,8 +7,8 @@ from typing import Any, AsyncIterator, Dict, List, Optional
 import httpx
 
 from ..core.bases import AsyncLLMBase, LLMBase, ToolBase
-from ..core.models import Message, Role, ToolCall
-from .openai import _auth_headers, _build_payload, _parse_response, _to_openai_message, _to_openai_tool
+from ..core.models import Message
+from .openai import _auth_headers, _parse_response, _to_openai_message, _to_openai_tool
 
 
 class GroqModel(LLMBase):

@@ -2,8 +2,6 @@
 from __future__ import annotations
 
 import httpx
-import pytest
-import respx
 
 
 def openai_text_response(content: str = "ok") -> httpx.Response:
