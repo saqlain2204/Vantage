@@ -28,7 +28,6 @@ dependencies = [
     "python-dotenv>=1.0.1",
     "rich>=13.0.0",
     "Pillow>=10.0.0",
-    "requests"
 ]
 
 [project.optional-dependencies]
@@ -40,7 +39,6 @@ dev = [
     "ruff>=0.6.0",
     "mypy>=1.10.0",
     "types-PyYAML>=0.1.0",  # For mypy type checking support
-    "types-requests",
 ]
 
 [project.urls]

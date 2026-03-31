@@ -16,8 +16,9 @@ def main() -> None:
     print(Panel(resp.content, title="[bold][green]Final Response[/green][/bold]", border_style="green"))
     
     # Save a visual trace of the execution
-    save_trace_png(resp.trace, "examples/weather_agent/trace.png")
-    print("\n[bold][green]Visual trace saved to examples/weather_agent/trace.png[/green][/bold]")
+    trace_path = os.path.join(base_dir, "trace.png")
+    save_trace_png(resp.trace, trace_path)
+    print(f"\n[bold][green]Visual trace saved to {trace_path}[/green][/bold]")
 
 
 if __name__ == "__main__":
