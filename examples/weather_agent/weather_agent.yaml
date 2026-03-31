@@ -1,0 +1,12 @@
+agents:
+  weather_agent:
+    description: An agent that provides weather information using WeatherTool.
+    model: groq/llama-3.3-70b-versatile
+    tools:
+      - weather_tool
+    system_prompt: |
+      You are a helpful weather assistant. Use the WeatherTool to answer weather-related questions accurately.
+    response_schema:
+      weather_summary: string
+      temperature_celsius: number
+      location: string
