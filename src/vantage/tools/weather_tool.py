@@ -1,12 +1,22 @@
 from __future__ import annotations
 
 from typing import Any, Dict
+from urllib.parse import quote
+
+import httpx
 
 from ..core.bases import ToolBase
-import requests
+
+_DEFAULT_TIMEOUT = 10.0
+_RESPONSE_SNIPPET_LENGTH = 200
 
 
 class WeatherTool(ToolBase):
+    def __init__(self, timeout: float = _DEFAULT_TIMEOUT) -> None:
+        if timeout <= 0:
+            raise ValueError("timeout must be positive")
+        self._timeout = timeout
+
     @property
     def name(self) -> str:
         return "weather_tool"
@@ -32,10 +42,20 @@ class WeatherTool(ToolBase):
         location = str(kwargs.get("location", ""))
         if not location.strip():
             raise ValueError("location is required")
-        url = f"https://wttr.in/{location}?format=3"
-        response = requests.get(url)
-        if response.status_code != 200:
-            raise RuntimeError(f"Failed to fetch weather data for {location}")
+        encoded_location = quote(location)
+        url = f"https://wttr.in/{encoded_location}"
+        try:
+            response = httpx.get(url, params={"format": "3"}, timeout=self._timeout)
+            response.raise_for_status()
+        except httpx.HTTPStatusError as exc:
+            body = exc.response.text
+            snippet = body[:_RESPONSE_SNIPPET_LENGTH] + ("..." if len(body) > _RESPONSE_SNIPPET_LENGTH else "")
+            message = f"Failed to fetch weather data for {location} (status {exc.response.status_code})."
+            if snippet:
+                message += f" Response snippet: {snippet}"
+            raise RuntimeError(message) from exc
+        except httpx.RequestError as exc:
+            raise RuntimeError(f"Failed to fetch weather data for {location}: {exc}") from exc
         return response.text
 
 
