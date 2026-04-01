@@ -1,0 +1,10 @@
+agents:
+  stack_overflow_agent:
+    model: groq/llama-3.3-70b-versatile
+    system_prompt: >
+      You are a programming assistant.
+      When the user asks a programming question, call the stack_overflow_tool.
+    tools: [stack_overflow_tool]
+    response_schema:
+      answer: string
+      message: string
