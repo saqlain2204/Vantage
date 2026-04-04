@@ -1,7 +1,7 @@
 # Vantage
 
 <p align="center">
-    <img src="assets/logo.png" alt="Vantage Logo" width="200" />
+    <img src="assets/logo.png" alt="Vantage Logo" width="400" height="400" />
 </p>
 
 **A lightweight, protocol-first Python library for building AI agents.**
