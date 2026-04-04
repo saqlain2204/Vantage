@@ -1,5 +1,9 @@
 # Vantage
 
+<p align="center">
+    <img src="assets/logo.jpg" alt="Vantage Logo" width="200" />
+</p>
+
 **A lightweight, protocol-first Python library for building AI agents.**
 
 [![CI](https://github.com/saqlain2204/vantage/actions/workflows/ci.yml/badge.svg)](https://github.com/saqlain2204/vantage/actions/workflows/ci.yml)
