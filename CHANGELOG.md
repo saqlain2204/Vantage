@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-## [0.1.0] — 2026-03-30
+## [0.1.0] — 2026-05-09
 
 ### Added
 - `Agent` for synchronous single-agent and multi-agent flows.

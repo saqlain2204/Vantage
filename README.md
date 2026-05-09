@@ -1,13 +1,13 @@
 # Vantage
 
 <p align="center">
-    <img src="assets/logo.png" alt="Vantage Logo" width="400" height="400" />
+    <img src="https://raw.githubusercontent.com/saqlain2204/vantage/main/assets/logo.png" alt="Vantage Logo" width="400" height="400" />
 </p>
 
 **A lightweight, protocol-first Python library for building AI agents.**
 
 [![CI](https://github.com/saqlain2204/vantage/actions/workflows/ci.yml/badge.svg)](https://github.com/saqlain2204/vantage/actions/workflows/ci.yml)
-[![PyPI version](https://badge.fury.io/py/vantage.svg)](https://badge.fury.io/py/vantage)
+[![PyPI version](https://badge.fury.io/py/vantage-agents.svg)](https://badge.fury.io/py/vantage-agents)
 [![Python Version](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -26,7 +26,7 @@ Vantage is a modular Python library for building AI agents. It follows SOLID pri
 ## Installation
 
 ```bash
-pip install vantage
+pip install vantage-agents
 ```
 
 ## Quick Start

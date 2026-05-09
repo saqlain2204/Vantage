@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "vantage"
-version = "0.1.0"
+name = "vantage-agents"
+version = "0.1.1"
 description = "A modular and extensible Python library for building AI agents."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -43,6 +43,7 @@ dev = [
 
 [project.urls]
 Homepage = "https://github.com/saqlain2204/vantage"
+Repository = "https://github.com/saqlain2204/vantage"
 Issues = "https://github.com/saqlain2204/vantage/issues"
 
 [project.scripts]
